@@ -4,7 +4,7 @@
   "description": "Skill discovery and loading tools for AI agents. Provides semantic skill search, full skill loading, resource listing, and skill browsing via the GhostLabs Skills Engine API.",
   "author": "GhostLabs AI",
   "license": "Apache-2.0",
-  "repository": "https://github.com/pedrocr83/ghostlabs-ai",
+  "repository": "https://github.com/ghostlabs-ai/ghostlabs-ai",
   "transport": ["sse"],
   "tools": ["health_check", "find_skills", "get_skill", "get_skill_resources", "list_skills"]
 }

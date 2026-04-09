@@ -4,7 +4,7 @@
   "description": "Business intelligence and data query tools for AI agents. Provides natural language to SQL queries, document search, conversation history, report generation, and chart creation via Whisper's API.",
   "author": "GhostLabs AI",
   "license": "Apache-2.0",
-  "repository": "https://github.com/pedrocr83/ghostlabs-ai",
+  "repository": "https://github.com/ghostlabs-ai/ghostlabs-ai",
   "transport": ["sse"],
   "tools": ["health_check", "query_business_data", "search_documents", "get_conversation_history", "generate_report", "create_chart"]
 }

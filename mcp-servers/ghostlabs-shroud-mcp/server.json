@@ -4,7 +4,7 @@
   "description": "Security and compliance tools for AI agents. Provides domain reputation checks, PII scanning, security scoring, CVE lookup, security event reporting, compliance status, and narrative generation via Shroud's API.",
   "author": "GhostLabs AI",
   "license": "Apache-2.0",
-  "repository": "https://github.com/pedrocr83/ghostlabs-ai",
+  "repository": "https://github.com/ghostlabs-ai/ghostlabs-ai",
   "transport": ["sse"],
   "tools": ["health_check", "check_domain_reputation", "scan_content_pii", "get_security_score", "check_vulnerability", "report_security_event", "get_compliance_status", "generate_compliance_narrative"]
 }

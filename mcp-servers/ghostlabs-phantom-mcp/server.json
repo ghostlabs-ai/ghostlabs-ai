@@ -4,7 +4,7 @@
   "description": "Lead generation and email verification tools for AI agents. Provides lead search, email verification, campaign management, and domain email pattern detection via Phantom's API.",
   "author": "GhostLabs AI",
   "license": "Apache-2.0",
-  "repository": "https://github.com/pedrocr83/ghostlabs-ai",
+  "repository": "https://github.com/ghostlabs-ai/ghostlabs-ai",
   "transport": ["sse"],
   "tools": ["health_check", "search_leads", "get_lead_details", "verify_email", "check_domain_email_pattern", "create_campaign", "get_campaign_status"]
 }

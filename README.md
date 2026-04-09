@@ -47,10 +47,10 @@ MCP servers give AI agents live access to GhostLabs product APIs. Connect them t
 
 ```bash
 # Install all GhostLabs skills
-claude skills add pedrocr83/ghostlabs-ai
+claude skills add ghostlabs-ai/ghostlabs-ai
 
 # Or install a specific product's skills
-claude skills add pedrocr83/ghostlabs-ai/skills/specter
+claude skills add ghostlabs-ai/ghostlabs-ai/skills/specter
 ```
 
 Skills auto-trigger when your conversation matches their domain — no manual invocation needed.

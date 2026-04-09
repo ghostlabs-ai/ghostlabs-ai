@@ -10,7 +10,7 @@
 ### Option 1: Claude Code Plugin
 
 ```bash
-claude skills add pedrocr83/ghostlabs-ai
+claude skills add ghostlabs-ai/ghostlabs-ai
 ```
 
 This installs all 16 skills. They auto-trigger when your conversation matches their domain.
@@ -20,7 +20,7 @@ This installs all 16 skills. They auto-trigger when your conversation matches th
 Clone the repo and point your agent to the skills directory:
 
 ```bash
-git clone https://github.com/pedrocr83/ghostlabs-ai.git
+git clone https://github.com/ghostlabs-ai/ghostlabs-ai.git
 ```
 
 ## Using Skills

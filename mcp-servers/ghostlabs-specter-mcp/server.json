@@ -4,7 +4,7 @@
   "description": "Adversarial strategy analysis tools for AI agents. Provides multi-stage adversarial testing, session results, analysis templates, claim extraction, and red-team evaluation via Specter's API.",
   "author": "GhostLabs AI",
   "license": "Apache-2.0",
-  "repository": "https://github.com/pedrocr83/ghostlabs-ai",
+  "repository": "https://github.com/ghostlabs-ai/ghostlabs-ai",
   "transport": ["sse"],
   "tools": ["health_check", "run_adversarial_test", "get_session_results", "list_templates", "extract_claims", "red_team_evaluate"]
 }
