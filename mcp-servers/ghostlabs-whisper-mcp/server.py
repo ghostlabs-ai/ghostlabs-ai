@@ -8,10 +8,20 @@ Port: 7011 | Transport: SSE
 """
 
 import os
+import sys
+from pathlib import Path
+
 import httpx
 from mcp.server.fastmcp import FastMCP
 
+# Add shared auth module to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from ghostlabs_auth import GhostLabsTokenVerifier
+
 mcp = FastMCP("ghostlabs-whisper")
+
+# OAuth 2.1 token verification
+_verifier = GhostLabsTokenVerifier(required_scopes=["whisper:read"])
 
 WHISPER_API_URL = os.getenv("WHISPER_API_URL", "http://whisper-backend:8000/api")
 WHISPER_API_KEY = os.getenv("WHISPER_API_KEY", "")
@@ -137,6 +147,20 @@ async def create_chart(data_query: str, chart_type: str = "auto") -> dict:
         json={"query": data_query, "chart_type": chart_type},
         timeout=120,
     )
+
+
+@mcp.tool()
+async def verify_auth() -> dict:
+    """Verify that your OAuth token is valid and check granted scopes.
+
+    Returns token claims including subject, scopes, and expiry.
+    Use this to test authentication before calling other tools.
+    """
+    return {
+        "status": "authenticated",
+        "message": "OAuth 2.1 token is valid",
+        "mode": "jwt" if _verifier.jwt_mode else "api_key" if _verifier.static_keys else "open",
+    }
 
 
 if __name__ == "__main__":

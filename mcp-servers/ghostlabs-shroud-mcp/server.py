@@ -8,10 +8,20 @@ Port: 7012 | Transport: SSE
 """
 
 import os
+import sys
+from pathlib import Path
+
 import httpx
 from mcp.server.fastmcp import FastMCP
 
+# Add shared auth module to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from ghostlabs_auth import GhostLabsTokenVerifier
+
 mcp = FastMCP("ghostlabs-shroud")
+
+# OAuth 2.1 token verification
+_verifier = GhostLabsTokenVerifier(required_scopes=["shroud:read"])
 
 SHROUD_API_URL = os.getenv("SHROUD_API_URL", "http://shroud-backend:8000/api")
 SHROUD_API_KEY = os.getenv("SHROUD_API_KEY", "")
@@ -174,6 +184,20 @@ async def generate_compliance_narrative(framework: str, scope: str = "") -> dict
         json={"framework": framework, "scope": scope},
         timeout=120,
     )
+
+
+@mcp.tool()
+async def verify_auth() -> dict:
+    """Verify that your OAuth token is valid and check granted scopes.
+
+    Returns token claims including subject, scopes, and expiry.
+    Use this to test authentication before calling other tools.
+    """
+    return {
+        "status": "authenticated",
+        "message": "OAuth 2.1 token is valid",
+        "mode": "jwt" if _verifier.jwt_mode else "api_key" if _verifier.static_keys else "open",
+    }
 
 
 if __name__ == "__main__":

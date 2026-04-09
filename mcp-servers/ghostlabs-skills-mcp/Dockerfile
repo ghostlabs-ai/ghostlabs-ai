@@ -4,6 +4,8 @@ WORKDIR /app
 COPY pyproject.toml ./
 RUN uv pip install --system .
 COPY . .
+# Copy shared auth module (build context must include ghostlabs_auth/)
+COPY ghostlabs_auth/ ./ghostlabs_auth/
 ENV PYTHONUNBUFFERED=1
 EXPOSE 7014
 CMD ["fastmcp", "run", "server.py:mcp", "--transport", "sse", "--host", "0.0.0.0", "--port", "7014"]
